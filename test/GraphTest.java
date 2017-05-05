@@ -163,6 +163,21 @@ public class GraphTest {
     }
 
     @Test
+    public void getShortestPath_5x1matrix(){
+        Graph subject = new Graph();
+        subject.addRow("5");
+        subject.addRow("8");
+        subject.addRow("5");
+        subject.addRow("3");
+        subject.addRow("5");
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        assertEquals(3, result.getCost());
+    }
+
+    @Test
     public void priorityQueueTest(){
         Graph subject = new Graph();
 

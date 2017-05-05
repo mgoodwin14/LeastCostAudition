@@ -66,22 +66,30 @@ public class Graph {
     }
 
     private void addChildPaths(GraphPath path) {
-        GraphPath eastPath = getEastChildPath(path);
-        GraphPath northEast = getNorthEastChildPath(path);
-        GraphPath southEast = getSouthEastChildPath(path);
+        if(path.getCol() < numCols() -1) {
+            GraphPath eastPath = getEastChildPath(path);
+            GraphPath northEast = getNorthEastChildPath(path);
+            GraphPath southEast = getSouthEastChildPath(path);
 
-        if(eastPath.getCost() > 50
-                && northEast.getCost() > 50
-                && southEast.getCost() > 50){
-            throw new IllegalArgumentException("Cost too great.");
+            if (eastPath.getCost() > 50
+                    && northEast.getCost() > 50
+                    && southEast.getCost() > 50) {
+                throw new IllegalArgumentException("Cost too great.");
+            }
+            addToQueue(eastPath);
+            addToQueue(northEast);
+            addToQueue(southEast);
+        }else {
+            path.setFinished(true);
+            addToQueue(path);
         }
-        addToQueue(eastPath);
-        addToQueue(northEast);
-        addToQueue(southEast);
     }
 
     private int numRows() {
         return graph.size();
+    }
+    private int numCols() {
+        return graph.get(0).size();
     }
 
     private GraphPath getNorthEastChildPath(GraphPath path){
