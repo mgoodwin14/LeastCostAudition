@@ -60,15 +60,20 @@ public class GraphTest {
     @Test
     public void getShortestPath_2Rows(){
         Graph subject = new Graph();
-        subject.addRow("1 10 1 1 1");
+        subject.addRow("1 10 1 10 1");
         subject.addRow("2 2 2 2 2");
 
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
-        assertEquals(6, result.getCost());
+        assertEquals(1+2+1+2+1, result.getCost());
         assertEquals(true, result.isFinished());
         assertEquals(5, result.getRowsVisited().size());
+        assertEquals(0, result.getRowsVisited().get(0).intValue());
+        assertEquals(1, result.getRowsVisited().get(1).intValue());
+        assertEquals(0, result.getRowsVisited().get(2).intValue());
+        assertEquals(1, result.getRowsVisited().get(3).intValue());
+        assertEquals(0, result.getRowsVisited().get(4).intValue());
     }
 
     @Test

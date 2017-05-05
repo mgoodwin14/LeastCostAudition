@@ -54,6 +54,21 @@ public class Graph {
     private void addChildPaths(GraphPath path) {
         addEastChildPath(path);
         addNorthEastChildPath(path);
+        addSouthEastChildPath(path);
+    }
+
+    private void addSouthEastChildPath(GraphPath path) {
+        int costOfNext;
+
+        int row = (path.getRow()-1) == -1 ? maxRows()-1 : path.getRow()-1;
+
+        costOfNext = getRow(row).get(path.getCol()+1);
+
+        GraphPath southEastPath = GraphPath.nextNorthEast(path, row, costOfNext);
+        if(southEastPath.getCol() == getRow(0).size()-1){
+            southEastPath.setFinished(true);
+        }
+        addToQueue(southEastPath);
     }
 
     private int maxRows() {
