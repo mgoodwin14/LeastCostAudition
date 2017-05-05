@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.PriorityQueue;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.TestCase.assertNull;
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -48,6 +49,9 @@ public class GraphTest {
         Graph subject = new Graph();
 
         GraphPath path = new GraphPath();
-        subject.addToQueue();
+        subject.addToQueue(path);
+
+        assertEquals(path, subject.popQueue());
+        assertNull(subject.popQueue());
     }
 }

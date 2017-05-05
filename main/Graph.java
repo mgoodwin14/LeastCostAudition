@@ -40,6 +40,9 @@ public class Graph {
     }
 
     public GraphPath popQueue(){
+        if(paths.isEmpty()){
+            return null;
+        }
         return paths.remove();
     }
 }
