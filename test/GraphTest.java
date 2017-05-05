@@ -271,6 +271,68 @@ public class GraphTest {
     }
 
     @Test
+    public void getShortestPath_longerIncompleteVsShorterIncomplete() {
+        Graph subject = new Graph();
+        subject.addRow("51 51 51");
+        subject.addRow("0 51 51");
+        subject.addRow("51 51 51");
+        subject.addRow("5 5 51");
+
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        result.printPath();
+        assertTrue(!result.isFinished());
+        assertEquals(10, result.getCost());
+
+        List<Integer> expectedRows = new ArrayList<>();
+        expectedRows.add(4-1);
+        expectedRows.add(4-1);
+
+        assertEquals(expectedRows, result.getRowsVisited());
+    }
+
+    @Test
+    public void getShortestPath_longNumberColumns(){
+        Graph subject = new Graph();
+        subject.addRow("1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1");
+        subject.addRow("2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2");
+
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        result.printPath();
+        assertTrue(result.isFinished());
+        assertEquals(20, result.getCost());
+
+        List<Integer> expectedRows = new ArrayList<>();
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+        expectedRows.add(0);
+
+        assertEquals(expectedRows, result.getRowsVisited());
+    }
+
+    @Test
     public void priorityQueueTest(){
         Graph subject = new Graph();
 
