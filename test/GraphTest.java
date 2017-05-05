@@ -81,7 +81,7 @@ public class GraphTest {
     }
 
     @Test
-    public void getShortestPath_case1(){
+    public void getShortestPath_6X5matrix_1(){
         Graph subject = new Graph();
 
         subject.addRow("3 4 1 2 8 6 ");
@@ -93,6 +93,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
         assertEquals(16, result.getCost());
 
@@ -108,8 +109,15 @@ public class GraphTest {
     }
 
     @Test
-    public void getShortestPath_case2(){
+    public void getShortestPath_6X5matrix_2(){
         //fails but path is same total cost
+
+        //Expected
+        //
+        //
+        //Actual:    Yes
+        //          11
+        //          [0, 1, 0, 4, 4, 4]
 
         Graph subject = new Graph();
         subject.addRow("3 4 1 2 8 6");
@@ -137,7 +145,7 @@ public class GraphTest {
     }
 
     @Test
-    public void getShortestPath_case3(){
+    public void getShortestPath_5X3matrix_noPath(){
         Graph subject = new Graph();
         subject.addRow("19 10 19 10 19");
         subject.addRow("21 23 20 19 12");
