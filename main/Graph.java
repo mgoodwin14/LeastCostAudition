@@ -32,12 +32,13 @@ public class Graph {
     }
 
     public GraphPath findShortestPath(){
-        int col = 0;
-        int row = 0;
-        Integer value = getRow(row).get(col);
-        GraphPath initialPath = new GraphPath(col, row, value, row);
 
-        addToQueue(initialPath);
+        //add all of 0 index to queue
+        for(int row =0; row < maxRows(); row++){
+            Integer value = getRow(row).get(0);
+            GraphPath initialPath = new GraphPath(0, row, value, row);
+            addToQueue(initialPath);
+        }
 
         while(!paths.isEmpty()){
             GraphPath path = popQueue();
@@ -48,6 +49,10 @@ public class Graph {
             addChildPaths(path);
         }
         return null;
+    }
+
+    private int maxRows() {
+        return graph.size();
     }
 
     private void addChildPaths(GraphPath path) {
