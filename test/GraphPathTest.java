@@ -19,7 +19,7 @@ public class GraphPathTest {
         assertEquals(0, path1.getCost());
         assertEquals(0, path1.getRowsVisited().get(0).intValue());
 
-        GraphPath path2 = new GraphPath(path1, 0);
+        GraphPath path2 = GraphPath.nextEast(path1);
 
         assertEquals(1, path2.getCol());
         assertEquals(0, path2.getRow());
