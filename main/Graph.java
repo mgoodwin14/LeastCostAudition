@@ -49,11 +49,6 @@ public class Graph {
             try {
                 addChildPaths(path);
             } catch (IllegalArgumentException e){
-                //all path child costs exceed 50
-//                if(paths.isEmpty()){
-//                    return path;
-//                }
-
                 if(paths.isEmpty()){
                     path.printPath();
                     return path;
