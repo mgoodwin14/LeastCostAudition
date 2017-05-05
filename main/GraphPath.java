@@ -19,8 +19,32 @@ public class GraphPath {
         this.rowsVisited.add(initialRow);
     }
 
+    public GraphPath(GraphPath path, int nextRow){
+        this.col = path.col+1;
+        this.row = path.row;
+        this.cost = path.cost;
+        rowsVisited.addAll(path.rowsVisited);
+        rowsVisited.add(nextRow);
+    }
+
     public int getCost() {
         return cost;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public List<Integer> getRowsVisited() {
+        return rowsVisited;
     }
 
     @Override

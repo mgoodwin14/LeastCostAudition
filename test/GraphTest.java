@@ -51,7 +51,7 @@ public class GraphTest {
     public void priorityQueueTest(){
         Graph subject = new Graph();
 
-        GraphPath path = new GraphPath();
+        GraphPath path = new GraphPath(0,0,0,0);
         subject.addToQueue(path);
 
         assertEquals(path, subject.popQueue());

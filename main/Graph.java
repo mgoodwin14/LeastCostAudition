@@ -35,8 +35,23 @@ public class Graph {
         int col = 0;
         int row = 0;
         Integer value = getRow(row).get(col);
-        GraphPath path = new GraphPath(col, row, value, row+1);
+        GraphPath initialPath = new GraphPath(col, row, value, row+1);
+
+        addToQueue(initialPath);
+
+        while(!paths.isEmpty()){
+            GraphPath path = popQueue();
+            if(path.isFinished()){
+                return path;
+            }
+
+            addChildPaths(path, paths);
+        }
         return null;
+    }
+
+    private void addChildPaths(GraphPath path, PriorityQueue<GraphPath> paths) {
+        GraphPath eastPath = new GraphPath(path, path.getRow());
     }
 
     public void addToQueue(GraphPath path){
