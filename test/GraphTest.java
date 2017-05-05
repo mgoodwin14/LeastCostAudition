@@ -5,6 +5,8 @@ import main.GraphPath;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 
 import static junit.framework.Assert.assertEquals;
@@ -74,6 +76,32 @@ public class GraphTest {
         assertEquals(0, result.getRowsVisited().get(2).intValue());
         assertEquals(1, result.getRowsVisited().get(3).intValue());
         assertEquals(0, result.getRowsVisited().get(4).intValue());
+    }
+
+    @Test
+    public void getShortestPath_case1(){
+        Graph subject = new Graph();
+
+        subject.addRow("3 4 1 2 8 6 ");
+        subject.addRow("6 1 8 2 7 4");
+        subject.addRow("5 9 3 9 9 5");
+        subject.addRow("8 4 1 3 2 6");
+        subject.addRow("3 7 2 8 6 4");
+
+        GraphPath path = subject.findShortestPath();
+
+        assertNotNull(path);
+        assertEquals(16, path.getCost());
+
+        List<Integer> expectedRows = new ArrayList<>();
+        expectedRows.add(1-1);
+        expectedRows.add(2-1);
+        expectedRows.add(3-1);
+        expectedRows.add(4-1);
+        expectedRows.add(4-1);
+        expectedRows.add(5-1);
+
+        assertEquals(expectedRows, path.getRowsVisited());
     }
 
     @Test
