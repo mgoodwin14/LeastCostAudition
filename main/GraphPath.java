@@ -12,6 +12,13 @@ public class GraphPath {
     private int row, col;
     private final List<Integer> rowsVisited = new ArrayList<>();
 
+    public GraphPath(int col, int row, Integer cost, int initialRow) {
+        this.col = col;
+        this.row = row;
+        this.cost = cost;
+        this.rowsVisited.add(initialRow);
+    }
+
     public int getCost() {
         return cost;
     }

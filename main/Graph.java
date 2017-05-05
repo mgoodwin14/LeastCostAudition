@@ -32,6 +32,10 @@ public class Graph {
     }
 
     public GraphPath findShortestPath(){
+        int col = 0;
+        int row = 0;
+        Integer value = getRow(row).get(col);
+        GraphPath path = new GraphPath(col, row, value, row+1);
         return null;
     }
 
