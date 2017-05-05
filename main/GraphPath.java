@@ -12,8 +12,8 @@ public class GraphPath {
     private int row, col;
     private final List<Integer> rowsVisited = new ArrayList<>();
 
-    public static GraphPath nextEast(GraphPath path){
-        return new GraphPath(path, path.row);
+    public static GraphPath nextEast(GraphPath path, int nextCost){
+        return new GraphPath(path, path.row, nextCost);
     }
 
     public GraphPath(int col, int row, Integer cost, int initialRow) {
@@ -23,10 +23,10 @@ public class GraphPath {
         this.rowsVisited.add(initialRow);
     }
 
-    private GraphPath(GraphPath path, int nextRow){
+    private GraphPath(GraphPath path, int nextRow, int nextCost){
         this.col = path.col+1;
         this.row = path.row;
-        this.cost = path.cost;
+        this.cost = path.cost + nextCost;
         rowsVisited.addAll(path.rowsVisited);
         rowsVisited.add(nextRow);
     }

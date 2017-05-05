@@ -35,7 +35,7 @@ public class Graph {
         int col = 0;
         int row = 0;
         Integer value = getRow(row).get(col);
-        GraphPath initialPath = new GraphPath(col, row, value, row+1);
+        GraphPath initialPath = new GraphPath(col, row, value, row);
 
         addToQueue(initialPath);
 
@@ -51,10 +51,14 @@ public class Graph {
     }
 
     private void addChildPaths(GraphPath path) {
-        GraphPath eastPath = GraphPath.nextEast(path);
-        if(eastPath.getCol() > getRow(0).size()){
+        int costOfNext;
+
+        costOfNext = getRow(path.getRow()).get(path.getCol());
+        GraphPath eastPath = GraphPath.nextEast(path, costOfNext);
+        if(eastPath.getCol() == getRow(0).size()-1){
             eastPath.setFinished(true);
         }
+
         addToQueue(eastPath);
     }
 

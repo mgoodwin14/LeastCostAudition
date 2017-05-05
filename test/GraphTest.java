@@ -45,9 +45,15 @@ public class GraphTest {
 
         GraphPath result = subject.findShortestPath();
 
-        assertNotNull(result);
+        GraphPath expected = new GraphPath(0, 0, 1 , 0);
+        expected = GraphPath.nextEast(expected, 1);
+        expected = GraphPath.nextEast(expected, 1);
+        expected = GraphPath.nextEast(expected, 1);
+        expected = GraphPath.nextEast(expected, 1);
+        expected.setFinished(true);
 
-        assertEquals(5, result.getCost());
+        assertNotNull(result);
+        assertEquals(expected, result);
     }
 
     @Test
