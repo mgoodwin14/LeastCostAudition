@@ -56,6 +56,7 @@ public class GraphTest {
 
         assertNotNull(result);
 //        assertEquals(expected, result);
+        assertTrue(result.isFinished());
         assertEquals(1+2+3+4+5, result.getCost());
     }
 
@@ -68,6 +69,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        assertTrue(result.isFinished());
         assertEquals(1+2+1+2+1, result.getCost());
         assertEquals(true, result.isFinished());
         assertEquals(5, result.getRowsVisited().size());
@@ -88,10 +90,11 @@ public class GraphTest {
         subject.addRow("8 4 1 3 2 6");
         subject.addRow("3 7 2 8 6 4");
 
-        GraphPath path = subject.findShortestPath();
+        GraphPath result = subject.findShortestPath();
 
-        assertNotNull(path);
-        assertEquals(16, path.getCost());
+        assertNotNull(result);
+        assertTrue(result.isFinished());
+        assertEquals(16, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
         expectedRows.add(1-1);
@@ -101,7 +104,7 @@ public class GraphTest {
         expectedRows.add(4-1);
         expectedRows.add(5-1);
 
-        assertEquals(expectedRows, path.getRowsVisited());
+        assertEquals(expectedRows, result.getRowsVisited());
     }
 
     @Test
@@ -115,10 +118,11 @@ public class GraphTest {
         subject.addRow("8 4 1 3 2 6");
         subject.addRow("3 7 2 1 2 3");
 
-        GraphPath path = subject.findShortestPath();
+        GraphPath result = subject.findShortestPath();
 
-        assertNotNull(path);
-        assertEquals(11, path.getCost());
+        assertNotNull(result);
+        assertTrue(result.isFinished());
+        assertEquals(11, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
         expectedRows.add(1-1);
@@ -128,7 +132,7 @@ public class GraphTest {
         expectedRows.add(4-1);
         expectedRows.add(5-1);
 
-        assertEquals(expectedRows, path.getRowsVisited());
+        assertEquals(expectedRows, result.getRowsVisited());
     }
 
     @Test
@@ -141,6 +145,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        assertTrue(result.isFinished());
 //        assertEquals(48, result.getCost());
 
         System.out.print(result.getCost());
@@ -159,6 +164,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        assertTrue(result.isFinished());
         assertEquals(26, result.getCost());
     }
 
@@ -174,6 +180,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        assertTrue(result.isFinished());
         assertEquals(3, result.getCost());
     }
 
@@ -187,12 +194,23 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
-        assertEquals(false, result.isFinished());
+        assertTrue(!result.isFinished());
         assertEquals(0, result.getCost());
         assertEquals(0, result.getRowsVisited().size());
     }
 
-    
+    @Test
+    public void getShortestPath_oneAbove50(){
+        Graph subject = new Graph();
+        subject.addRow("60 3 3 6");
+        subject.addRow("6 3 7 9");
+        subject.addRow("5 6 8 3");
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        assertTrue(result.isFinished());
+    }
 
     @Test
     public void priorityQueueTest(){
