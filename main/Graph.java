@@ -34,7 +34,7 @@ public class Graph {
     public GraphPath findShortestPath(){
 
         //add all of 0 index to queue
-        for(int row =0; row < maxRows(); row++){
+        for(int row = 0; row < numRows(); row++){
             Integer value = getRow(row).get(0);
             GraphPath initialPath = new GraphPath(0, row, value, row);
             addToQueue(initialPath);
@@ -60,18 +60,18 @@ public class Graph {
     private void addSouthEastChildPath(GraphPath path) {
         int costOfNext;
 
-        int row = (path.getRow()-1) == -1 ? maxRows()-1 : path.getRow()-1;
+        int row = (path.getRow()-1) == -1 ? numRows()-1 : path.getRow()-1;
 
         costOfNext = getRow(row).get(path.getCol()+1);
 
-        GraphPath southEastPath = GraphPath.nextNorthEast(path, row, costOfNext);
+        GraphPath southEastPath = GraphPath.nextDiagonalEast(path, row, costOfNext);
         if(southEastPath.getCol() == getRow(0).size()-1){
             southEastPath.setFinished(true);
         }
         addToQueue(southEastPath);
     }
 
-    private int maxRows() {
+    private int numRows() {
         return graph.size();
     }
 
@@ -82,7 +82,7 @@ public class Graph {
 
         costOfNext = getRow(row).get(path.getCol()+1);
 
-        GraphPath northEastPath = GraphPath.nextNorthEast(path, row, costOfNext);
+        GraphPath northEastPath = GraphPath.nextDiagonalEast(path, row, costOfNext);
         if(northEastPath.getCol() == getRow(0).size()-1){
             northEastPath.setFinished(true);
         }
