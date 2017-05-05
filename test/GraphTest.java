@@ -42,4 +42,12 @@ public class GraphTest {
 
         GraphPath result = subject.findShortestPath();
     }
+
+    @Test
+    public void priorityQueueTest(){
+        Graph subject = new Graph();
+
+        GraphPath path = new GraphPath();
+        subject.addToQueue();
+    }
 }
