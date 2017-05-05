@@ -121,6 +121,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
         assertEquals(11, result.getCost());
 
@@ -145,10 +146,10 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
-        assertTrue(result.isFinished());
+        result.printPath();
+        assertTrue(!result.isFinished());
 //        assertEquals(48, result.getCost());
 
-        System.out.print(result.getCost());
         List<Integer> expectedPath = new ArrayList<>();
         expectedPath.add(0);
         expectedPath.add(0);
@@ -164,6 +165,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
         assertEquals(26, result.getCost());
     }
@@ -180,6 +182,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
         assertEquals(3, result.getCost());
     }
@@ -194,6 +197,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(!result.isFinished());
         assertEquals(0, result.getCost());
         assertEquals(0, result.getRowsVisited().size());
@@ -209,6 +213,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
     }
 
@@ -223,6 +228,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
         assertEquals(0, result.getCost());
 
@@ -245,6 +251,7 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+        result.printPath();
         assertTrue(result.isFinished());
         assertEquals(10, result.getCost());
 
