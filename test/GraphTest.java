@@ -213,6 +213,28 @@ public class GraphTest {
     }
 
     @Test
+    public void getShortestPath_negatives(){
+        Graph subject = new Graph();
+        subject.addRow("6 3 -5 9");
+        subject.addRow("-5 2 4 10");
+        subject.addRow("3 -2 6 10");
+        subject.addRow("6 -1 -2 10");
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        assertTrue(result.isFinished());
+        assertEquals(0, result.getCost());
+
+        List<Integer> expectedRows = new ArrayList<>();
+        expectedRows.add(2-1);
+        expectedRows.add(3-1);
+        expectedRows.add(4-1);
+        expectedRows.add(1-1);
+        assertEquals(expectedRows, result.getRowsVisited());
+    }
+
+    @Test
     public void priorityQueueTest(){
         Graph subject = new Graph();
 
