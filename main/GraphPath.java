@@ -16,8 +16,8 @@ public class GraphPath {
         return new GraphPath(path, path.row, nextCost);
     }
 
-    public static GraphPath nextNorthEast(GraphPath path, int costOfNext) {
-        return new GraphPath(path, path.row+1, costOfNext);
+    public static GraphPath nextNorthEast(GraphPath path, int nextRow, int costOfNext) {
+        return new GraphPath(path, nextRow, costOfNext);
     }
 
     public GraphPath(int col, int row, Integer cost, int initialRow) {

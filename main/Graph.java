@@ -58,11 +58,11 @@ public class Graph {
     private void addNorthEastChildPath(GraphPath path){
         int costOfNext;
 
-        int row = (path.getRow()+1) % graph.size()-1;
+        int row = (path.getRow()+1) % graph.size();
 
         costOfNext = getRow(row).get(path.getCol()+1);
 
-        GraphPath northEastPath = GraphPath.nextNorthEast(path, costOfNext);
+        GraphPath northEastPath = GraphPath.nextNorthEast(path, row, costOfNext);
         if(northEastPath.getCol() == getRow(0).size()-1){
             northEastPath.setFinished(true);
         }
