@@ -89,7 +89,7 @@ public class GraphPath {
 
     public void printPath(){
         String output = finished ? "Yes" : "No";
-        output += "\n" +cost;
+        output += "\n" +cost + "\n";
         output += rowsVisited;
 
         System.out.print(output);
