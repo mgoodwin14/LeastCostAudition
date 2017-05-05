@@ -46,13 +46,27 @@ public class Graph {
                 return path;
             }
             addEastChildPath(path);
-
+            addNorthEastChildPath(path);
         }
         return null;
     }
 
     private int maxRows() {
         return graph.size();
+    }
+
+    private void addNorthEastChildPath(GraphPath path){
+        int costOfNext;
+
+        int row = (path.getRow()+1) % graph.size()-1;
+
+        costOfNext = getRow(row).get(path.getCol()+1);
+
+        GraphPath northEastPath = GraphPath.nextNorthEast(path, costOfNext);
+        if(northEastPath.getCol() == getRow(0).size()-1){
+            northEastPath.setFinished(true);
+        }
+        addToQueue(northEastPath);
     }
 
     private void addEastChildPath(GraphPath path) {

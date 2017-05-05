@@ -69,7 +69,6 @@ public class GraphTest {
         assertEquals(10, result.getCost());
         assertEquals(true, result.isFinished());
         assertEquals(5, result.getRowsVisited().size());
-
     }
 
     @Test

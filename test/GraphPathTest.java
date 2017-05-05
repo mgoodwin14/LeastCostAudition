@@ -25,5 +25,12 @@ public class GraphPathTest {
         assertEquals(0, path2.getRow());
         assertEquals(0, path2.getCost());
         assertEquals(0, path2.getRowsVisited().get(1).intValue());
+
+        GraphPath path3 = GraphPath.nextNorthEast(path2, 0);
+
+        assertEquals(2, path3.getCol());
+        assertEquals(1, path3.getRow());
+        assertEquals(0, path3.getCost());
+        assertEquals(0, path3.getRowsVisited().get(1).intValue());
     }
 }
