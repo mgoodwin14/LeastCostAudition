@@ -46,6 +46,8 @@ public class GraphTest {
         GraphPath result = subject.findShortestPath();
 
         assertNotNull(result);
+
+        assertEquals(5, result.getCost());
     }
 
     @Test

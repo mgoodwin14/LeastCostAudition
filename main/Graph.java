@@ -45,17 +45,17 @@ public class Graph {
                 return path;
             }
 
-            addChildPaths(path, paths);
+            addChildPaths(path);
         }
         return null;
     }
 
-    private void addChildPaths(GraphPath path, PriorityQueue<GraphPath> paths) {
+    private void addChildPaths(GraphPath path) {
         GraphPath eastPath = GraphPath.nextEast(path);
         if(eastPath.getCol() > getRow(0).size()){
             eastPath.setFinished(true);
         }
-        paths.add(eastPath);
+        addToQueue(eastPath);
     }
 
     public void addToQueue(GraphPath path){
