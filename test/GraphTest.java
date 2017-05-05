@@ -2,6 +2,7 @@ package test;
 
 import main.Graph;
 import main.GraphPath;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.PriorityQueue;

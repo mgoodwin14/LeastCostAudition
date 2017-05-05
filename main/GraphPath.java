@@ -51,6 +51,10 @@ public class GraphPath {
         return rowsVisited;
     }
 
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

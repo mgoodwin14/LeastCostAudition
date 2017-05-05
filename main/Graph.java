@@ -51,7 +51,11 @@ public class Graph {
     }
 
     private void addChildPaths(GraphPath path, PriorityQueue<GraphPath> paths) {
-        GraphPath eastPath = new GraphPath(path, path.getRow());
+        GraphPath eastPath = GraphPath.nextEast(path);
+        if(eastPath.getCol() > getRow(0).size()){
+            eastPath.setFinished(true);
+        }
+        paths.add(eastPath);
     }
 
     public void addToQueue(GraphPath path){
