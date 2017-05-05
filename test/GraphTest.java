@@ -54,12 +54,12 @@ public class GraphTest {
         assertEquals(16, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
-        expectedRows.add(1-1);
-        expectedRows.add(2-1);
-        expectedRows.add(3-1);
-        expectedRows.add(4-1);
-        expectedRows.add(4-1);
-        expectedRows.add(5-1);
+        expectedRows.add(1);
+        expectedRows.add(2);
+        expectedRows.add(3);
+        expectedRows.add(4);
+        expectedRows.add(4);
+        expectedRows.add(5);
 
         assertEquals(expectedRows, result.getRowsVisited());
     }
@@ -98,12 +98,12 @@ public class GraphTest {
         assertEquals(11, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
-        expectedRows.add(1-1);
-        expectedRows.add(2-1);
-        expectedRows.add(1-1);
-        expectedRows.add(5-1);
-        expectedRows.add(4-1);
-        expectedRows.add(5-1);
+        expectedRows.add(1);
+        expectedRows.add(2);
+        expectedRows.add(1);
+        expectedRows.add(5);
+        expectedRows.add(4);
+        expectedRows.add(5);
 
         assertEquals(expectedRows, result.getRowsVisited());
     }
@@ -122,7 +122,7 @@ public class GraphTest {
 
         Actual: No
                 49
-                [2, 0, 0]
+                [3, 1, 1]
 
         * */
 
@@ -139,9 +139,9 @@ public class GraphTest {
 //        assertEquals(48, result.getCost());
 
         List<Integer> expectedPath = new ArrayList<>();
-        expectedPath.add(0);
-        expectedPath.add(0);
-        expectedPath.add(0);
+        expectedPath.add(1);
+        expectedPath.add(1);
+        expectedPath.add(1);
         assertEquals(expectedPath, result.getRowsVisited());
     }
 
@@ -157,7 +157,7 @@ public class GraphTest {
         Actual:
                 Yes
                 26
-                [0, 0, 0, 0, 0]
+                [1, 1, 1, 1, 1]
         * */
 
 
@@ -189,7 +189,7 @@ public class GraphTest {
 
         Actual: Yes
                 3
-                [3]
+                [4]
         * */
 
         Graph subject = new Graph();
@@ -254,7 +254,7 @@ public class GraphTest {
 
         Actual: Yes
                 14
-                [2, 1, 0, 2]
+                [3, 2, 1, 3]
 
          */
 
@@ -286,7 +286,7 @@ public class GraphTest {
 
         Actual: Yes
                 0
-                [1, 2, 3, 0]
+                [2, 3, 4, 1]
         * */
 
         Graph subject = new Graph();
@@ -303,10 +303,10 @@ public class GraphTest {
         assertEquals(0, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
-        expectedRows.add(2-1);
-        expectedRows.add(3-1);
-        expectedRows.add(4-1);
-        expectedRows.add(1-1);
+        expectedRows.add(2);
+        expectedRows.add(3);
+        expectedRows.add(4);
+        expectedRows.add(1);
         assertEquals(expectedRows, result.getRowsVisited());
     }
 
@@ -326,7 +326,7 @@ public class GraphTest {
 
         Actual: Yes
                 10
-                [3, 3]
+                [4, 4]
         * */
 
         Graph subject = new Graph();
@@ -344,8 +344,8 @@ public class GraphTest {
         assertEquals(10, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
-        expectedRows.add(4-1);
-        expectedRows.add(4-1);
+        expectedRows.add(4);
+        expectedRows.add(4);
 
         assertEquals(expectedRows, result.getRowsVisited());
     }
@@ -366,7 +366,7 @@ public class GraphTest {
 
         Actual: No
                 10
-                [3, 3]
+                [4, 4]
         * */
 
         Graph subject = new Graph();
@@ -383,8 +383,8 @@ public class GraphTest {
         assertEquals(10, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
-        expectedRows.add(4-1);
-        expectedRows.add(4-1);
+        expectedRows.add(4);
+        expectedRows.add(4);
 
         assertEquals(expectedRows, result.getRowsVisited());
     }
@@ -403,7 +403,7 @@ public class GraphTest {
 
         Actual: Yes
                 20
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         * */
 
         Graph subject = new Graph();
@@ -419,26 +419,26 @@ public class GraphTest {
         assertEquals(20, result.getCost());
 
         List<Integer> expectedRows = new ArrayList<>();
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
-        expectedRows.add(0);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
+        expectedRows.add(1);
 
         assertEquals(expectedRows, result.getRowsVisited());
     }
@@ -490,7 +490,6 @@ public class GraphTest {
         expected.setFinished(true);
 
         assertNotNull(result);
-//        assertEquals(expected, result);
         assertTrue(result.isFinished());
         assertEquals(1+2+3+4+5, result.getCost());
     }
@@ -508,10 +507,10 @@ public class GraphTest {
         assertEquals(1+2+1+2+1, result.getCost());
         assertEquals(true, result.isFinished());
         assertEquals(5, result.getRowsVisited().size());
-        assertEquals(0, result.getRowsVisited().get(0).intValue());
-        assertEquals(1, result.getRowsVisited().get(1).intValue());
-        assertEquals(0, result.getRowsVisited().get(2).intValue());
-        assertEquals(1, result.getRowsVisited().get(3).intValue());
-        assertEquals(0, result.getRowsVisited().get(4).intValue());
+        assertEquals(1, result.getRowsVisited().get(0).intValue());
+        assertEquals(2, result.getRowsVisited().get(1).intValue());
+        assertEquals(1, result.getRowsVisited().get(2).intValue());
+        assertEquals(2, result.getRowsVisited().get(3).intValue());
+        assertEquals(1, result.getRowsVisited().get(4).intValue());
     }
 }

@@ -28,7 +28,7 @@ public class GraphPath {
         this.col = col;
         this.row = row;
         this.cost = cost;
-        this.rowsVisited.add(initialRow);
+        this.rowsVisited.add(initialRow+1);
     }
 
     private GraphPath(GraphPath path, int nextRow, int nextCost){
@@ -36,7 +36,7 @@ public class GraphPath {
         this.row = nextRow;
         this.cost = path.cost + nextCost;
         rowsVisited.addAll(path.rowsVisited);
-        rowsVisited.add(nextRow);
+        rowsVisited.add(nextRow+1);
     }
 
     public int getCost() {
