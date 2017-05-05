@@ -21,4 +21,5 @@ public class Graph {
     public List<Integer> getRow(int i){
         return graph.get(i);
     }
+    
 }
