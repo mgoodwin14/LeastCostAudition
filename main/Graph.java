@@ -58,7 +58,7 @@ public class Graph {
     private void addEastChildPath(GraphPath path) {
         int costOfNext;
 
-        costOfNext = getRow(path.getRow()).get(path.getCol());
+        costOfNext = getRow(path.getRow()).get(path.getCol()+1);
         GraphPath eastPath = GraphPath.nextEast(path, costOfNext);
         if(eastPath.getCol() == getRow(0).size()-1){
             eastPath.setFinished(true);
