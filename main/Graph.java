@@ -45,8 +45,8 @@ public class Graph {
             if(path.isFinished()){
                 return path;
             }
+            addEastChildPath(path);
 
-            addChildPaths(path);
         }
         return null;
     }
@@ -55,7 +55,7 @@ public class Graph {
         return graph.size();
     }
 
-    private void addChildPaths(GraphPath path) {
+    private void addEastChildPath(GraphPath path) {
         int costOfNext;
 
         costOfNext = getRow(path.getRow()).get(path.getCol());
