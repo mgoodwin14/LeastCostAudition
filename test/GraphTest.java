@@ -105,6 +105,64 @@ public class GraphTest {
     }
 
     @Test
+    public void getShortestPath_case2(){
+        //fails but path is same total cost
+
+        Graph subject = new Graph();
+        subject.addRow("3 4 1 2 8 6");
+        subject.addRow("6 1 8 2 7 4");
+        subject.addRow("5 9 3 9 9 5");
+        subject.addRow("8 4 1 3 2 6");
+        subject.addRow("3 7 2 1 2 3");
+
+        GraphPath path = subject.findShortestPath();
+
+        assertNotNull(path);
+        assertEquals(11, path.getCost());
+
+        List<Integer> expectedRows = new ArrayList<>();
+        expectedRows.add(1-1);
+        expectedRows.add(2-1);
+        expectedRows.add(1-1);
+        expectedRows.add(5-1);
+        expectedRows.add(4-1);
+        expectedRows.add(5-1);
+
+        assertEquals(expectedRows, path.getRowsVisited());
+    }
+
+    @Test
+    public void getShortestPath_case3(){
+        Graph subject = new Graph();
+        subject.addRow("19 10 19 10 19");
+        subject.addRow("21 23 20 19 12");
+        subject.addRow("20 12 20 11 10");
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+//        assertEquals(48, result.getCost());
+
+        System.out.print(result.getCost());
+        List<Integer> expectedPath = new ArrayList<>();
+        expectedPath.add(0);
+        expectedPath.add(0);
+        expectedPath.add(0);
+        assertEquals(expectedPath, result.getRowsVisited());
+    }
+
+    @Test
+    public void getShortestPath_1X5matrix(){
+        Graph subject = new Graph();
+        subject.addRow("5 8 5 3 5");
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        assertEquals(26, result.getCost());
+    }
+
+    @Test
     public void priorityQueueTest(){
         Graph subject = new Graph();
 

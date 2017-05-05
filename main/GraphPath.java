@@ -82,4 +82,12 @@ public class GraphPath {
         result = 31 * result + rowsVisited.hashCode();
         return result;
     }
+
+    public void printPath(){
+        String output = finished ? "Yes" : "No";
+        output += "\n" +cost;
+        output += rowsVisited;
+
+        System.out.print(output);
+    }
 }
