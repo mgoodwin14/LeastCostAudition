@@ -233,6 +233,27 @@ public class GraphTest {
         expectedRows.add(1-1);
         assertEquals(expectedRows, result.getRowsVisited());
     }
+    @Test
+    public void getShortestPath_completeVsCheaperIncomplete() {
+        Graph subject = new Graph();
+        subject.addRow("51 51");
+        subject.addRow("0 51");
+        subject.addRow("51 51");
+        subject.addRow("5 5");
+
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        assertTrue(result.isFinished());
+        assertEquals(10, result.getCost());
+
+        List<Integer> expectedRows = new ArrayList<>();
+        expectedRows.add(4-1);
+        expectedRows.add(4-1);
+
+        assertEquals(expectedRows, result.getRowsVisited());
+    }
 
     @Test
     public void priorityQueueTest(){
