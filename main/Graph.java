@@ -62,7 +62,7 @@ public class Graph {
                 }
             }
         }
-        return null;
+        return new GraphPath();
     }
 
     private void addChildPaths(GraphPath path) {

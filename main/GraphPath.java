@@ -20,6 +20,10 @@ public class GraphPath {
         return new GraphPath(path, nextRow, costOfNext);
     }
 
+    public GraphPath(){
+
+    }
+
     public GraphPath(int col, int row, Integer cost, int initialRow) {
         this.col = col;
         this.row = row;

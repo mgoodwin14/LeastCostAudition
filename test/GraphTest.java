@@ -178,6 +178,23 @@ public class GraphTest {
     }
 
     @Test
+    public void getShortestPath_allStartAbove50(){
+        Graph subject = new Graph();
+        subject.addRow("69 10 19 10 19");
+        subject.addRow("51 23 20 19 12");
+        subject.addRow("60 12 20 11 10");
+
+        GraphPath result = subject.findShortestPath();
+
+        assertNotNull(result);
+        assertEquals(false, result.isFinished());
+        assertEquals(0, result.getCost());
+        assertEquals(0, result.getRowsVisited().size());
+    }
+
+    
+
+    @Test
     public void priorityQueueTest(){
         Graph subject = new Graph();
 
