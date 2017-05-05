@@ -45,10 +45,15 @@ public class Graph {
             if(path.isFinished()){
                 return path;
             }
-            addEastChildPath(path);
-            addNorthEastChildPath(path);
+            addChildPaths(path);
+
         }
         return null;
+    }
+
+    private void addChildPaths(GraphPath path) {
+        addEastChildPath(path);
+        addNorthEastChildPath(path);
     }
 
     private int maxRows() {
